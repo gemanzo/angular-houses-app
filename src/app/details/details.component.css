@@ -35,6 +35,28 @@
     font-size: 14pt;
 }
 
+.success-banner {
+    background-color: rgba(6, 74, 6, 0.772);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    width: 20%;
+    animation: fadeOut 3s forwards;
+    animation-delay: 1s;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
 li {
     list-style-type: none;
 }

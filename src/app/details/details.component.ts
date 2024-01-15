@@ -45,6 +45,9 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
           <input id="email" type="email" formControlName="email" />
           <button type="submit" class="primary">Apply now</button>
         </form>
+        <div *ngIf="formSubmitted" class="success-banner">
+          Your application has been submitted successfully!
+        </div>
       </section>
     </article>
   `,
@@ -61,6 +64,8 @@ export class DetailsComponent {
     email: new FormControl(''),
   });
 
+  formSubmitted = false;
+
   constructor() {
     const housingLocationId = Number(this.route.snapshot.params['id']);
     this.housingLocation =
@@ -73,5 +78,7 @@ export class DetailsComponent {
       this.applyForm.value.lastName ?? '',
       this.applyForm.value.email ?? ''
     );
+    this.applyForm.reset();
+    this.formSubmitted = true;
   }
 }
